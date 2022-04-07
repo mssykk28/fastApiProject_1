@@ -9,27 +9,29 @@ router = APIRouter()
 
 
 @router.get("/examples", tags=["examples"], response_model=List[example_schema.Example])
-def get():  # noqa: ANN201
+def get_examples():  # noqa: ANN201
     """取得APIサンプル"""
     return example_service.find_all()
 
 
 @router.post("/examples", tags=["examples"], status_code=201)
-def post(payload: example_schema.ExampleCreate):  # noqa: ANN201
+def create_example(payload: example_schema.ExampleCreate):  # noqa: ANN201
     """登録APIサンプル"""
     example_service.create(payload)
     return "登録成功"
 
 
 @router.get("/examples/{example_id}", tags=["examples"])
-def get_detail(example_id: int):  # noqa: ANN201
+def get_example_detail(example_id: int):  # noqa: ANN201
     """詳細取得APIサンプル"""
     _validation(example_id)
     return example_service.find_by_id(example_id)
 
 
 @router.put("/examples/{example_id}", tags=["examples"], status_code=204)
-def put(example_id: int, payload: example_schema.ExampleUpdate):  # noqa: ANN201
+def update_example(
+    example_id: int, payload: example_schema.ExampleUpdate
+):  # noqa: ANN201
     """更新APIサンプル"""
     _validation(example_id)
     example_service.update(example_id, payload)
@@ -37,7 +39,7 @@ def put(example_id: int, payload: example_schema.ExampleUpdate):  # noqa: ANN201
 
 
 @router.patch("/examples/{example_id}", tags=["examples"], status_code=204)
-def patch(
+def portion_update_example(
     example_id: int, payload: example_schema.ExamplePortionUpdate
 ):  # noqa: ANN201
     """一部更新APIサンプル"""
@@ -47,7 +49,7 @@ def patch(
 
 
 @router.delete("/examples/{example_id}", tags=["examples"], status_code=204)
-def delete(example_id: int):  # noqa: ANN201
+def delete_example(example_id: int):  # noqa: ANN201
     """削除APIサンプル"""
     _validation(example_id)
     example_service.delete(example_id)
