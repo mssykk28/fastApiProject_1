@@ -6,8 +6,25 @@ name = "pypi"
 [packages]
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+pymysql = "*"
+sqlalchemy = "*"
 
 [dev-packages]
+flake8 = "*"
+flake8-print = "*"
+flake8-isort = "*"
+flake8-quotes = "*"
+flake8-annotations = "*"
+flake8-use-fstring = "*"
+black = "*"
+isort = "*"
+pre-commit = "*"
+alembic = "*"
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+lint = "flake8 --show-source --config .flake8"
+format = "black . --config pyproject.toml"
+isort = "isort . --settings-file pyproject.toml"
