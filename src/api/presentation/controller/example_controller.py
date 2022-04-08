@@ -21,7 +21,9 @@ def create_example(payload: example_schema.ExampleCreate):  # noqa: ANN201
     return "登録成功"
 
 
-@router.get("/examples/{example_id}", tags=["examples"])
+@router.get(
+    "/examples/{example_id}", tags=["examples"], response_model=example_schema.Example
+)
 def get_example_detail(example_id: int):  # noqa: ANN201
     """詳細取得APIサンプル"""
     _validation(example_id)
