@@ -47,29 +47,29 @@ class ExampleField:
 
 
 class Example(BaseModel):
-    id: Optional[int]
-    example_string: str
-    example_number: Optional[int]
-    example_datetime: Optional[datetime]
-    example_boolean: Optional[bool]
+    id: Optional[int] = ExampleField.id
+    example_string: str = ExampleField.example_string
+    example_number: Optional[int] = ExampleField.example_number
+    example_datetime: Optional[datetime] = ExampleField.example_datetime
+    example_boolean: Optional[bool] = ExampleField.example_boolean
 
 
 class ExampleCreate(BaseModel):
-    example_string: str
-    example_number: int
-    example_datetime: datetime
-    example_boolean: bool
+    example_string: str = ExampleField.example_string
+    example_number: int = ExampleField.example_number
+    example_datetime: datetime = ExampleField.example_datetime
+    example_boolean: bool = ExampleField.example_boolean
 
 
 class ExampleUpdate(BaseModel):
-    example_string: str
-    example_number: int
-    example_datetime: datetime
-    example_boolean: bool
+    example_string: str = ExampleField.example_string
+    example_number: int = ExampleField.example_number
+    example_datetime: datetime = ExampleField.example_datetime
+    example_boolean: bool = ExampleField.example_boolean
 
 
 class ExamplePortionUpdate(BaseModel):
-    example_string: Optional[str]
-    example_number: Optional[int]
-    example_datetime: Optional[datetime]
-    example_boolean: Optional[bool]
+    example_string: Optional[str] = ExampleField.example_string
+    example_number: Optional[int] = ExampleField.example_number
+    example_datetime: Optional[datetime] = ExampleField.example_datetime
+    example_boolean: Optional[bool] = ExampleField.example_boolean
