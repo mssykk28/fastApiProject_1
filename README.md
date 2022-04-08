@@ -1,4 +1,4 @@
-# fastApiProject_1
+# fastApiSampleLayeredArchitect
 
 ## pre-commitのインストール
 ```
